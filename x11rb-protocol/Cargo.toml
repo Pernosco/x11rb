@@ -98,6 +98,9 @@ xtest = []
 xv = ["shm"]
 xvmc = ["xv"]
 
+# The fds aren't real, don't operate on them.
+no-fd-ops = []
+
 [package.metadata.docs.rs]
 all-features = true
 
