@@ -163,6 +163,7 @@ pub mod extension_manager;
 #[cfg(feature = "image")]
 pub mod image;
 pub mod properties;
+#[cfg(not(feature = "dummy_fd"))]
 pub mod rust_connection;
 pub mod wrapper;
 #[rustfmt::skip]
@@ -181,6 +182,7 @@ use std::ffi::OsString;
 ///
 /// This function is identical to
 /// [RustConnection::connect](crate::rust_connection::RustConnection::connect).
+#[cfg(not(feature = "dummy_fd"))]
 pub fn connect(
     dpy_name: Option<&str>,
 ) -> Result<(rust_connection::RustConnection, usize), ConnectError> {

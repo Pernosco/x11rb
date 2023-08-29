@@ -9,14 +9,14 @@
 //! that it can appear in interfaces, but it is not actually possible to construct an instance of
 //! `RawFdContainer`.
 
-#[cfg(all(feature = "std", unix))]
+#[cfg(all(feature = "std", not(feature = "dummy_fd"), unix))]
 mod raw_fd_container {
     use std::os::unix::io::OwnedFd;
 
     pub(crate) type RawFdContainer = OwnedFd;
 }
 
-#[cfg(not(all(feature = "std", unix)))]
+#[cfg(not(all(feature = "std", not(feature = "dummy_fd"), unix)))]
 mod raw_fd_container {
     use core::convert::Infallible;
 

@@ -48,6 +48,10 @@ resource_manager = ["x11rb-protocol/resource_manager"]
 
 dl-libxcb = ["allow-unsafe-code", "libloading", "once_cell"]
 
+# Do not manage (e.g. dup/close/etc) fds. Useful for programs that decode
+# x11 messages but don't actually process them.
+dummy_fd = ["x11rb-protocol/dummy_fd"]
+
 # Enable this feature to enable all the X11 extensions
 all-extensions = [
     "x11rb-protocol/all-extensions",

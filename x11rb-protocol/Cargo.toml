@@ -28,6 +28,10 @@ std = []
 # resource databases.
 resource_manager = ["std"]
 
+# Do not manage (e.g. dup/close/etc) fds. Useful for programs that decode
+# x11 messages but don't actually process them.
+dummy_fd = []
+
 # Enable this feature to enable all the X11 extensions
 all-extensions = [
     "composite",
